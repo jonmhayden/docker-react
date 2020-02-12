@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t barefootjon/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true barefootjon/docker-react npm run test
